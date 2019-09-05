@@ -1,0 +1,129 @@
+% -*- LaTeX -*-
+\documentclass[12pt,oneside]{memoir}
+
+\usepackage{ragged2e}
+\usepackage[usenames, dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks, breaklinks, urlcolor=Maroon, linkcolor=Maroon}
+
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+
+\usepackage{fontawesome}
+
+\usepackage{scrlayer-scrpage}
+\ohead{\thepage}
+$if(nofoot)$
+$else$
+\ifoot{\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{\textcolor[gray]{0.80}{\ccbyncsa}}}
+\cfoot{} % remove page number
+\ofoot{%
+  \footnotesize
+  \color{Gray}%
+  samuel barreto\quad\faMale\\
+  \href{mailto:samuel.barreto8@gmail.com}{samuel.barreto8@gmail.com}\quad\faEnvelope \\
+  \href{https://sam217pa.gitlab.io/bacterial-finches/}{bacterial-finches.gitlab.io}\quad\faExternalLink
+}
+$endif$
+
+\newcommand{\tabbed}[1]{{{\hskip 2em}#1}}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{microtype}
+% \usepackage[sc, osf]{mathpazo}
+\usepackage[osf]{libertinus}
+\usepackage{amsmath, amssymb, etoolbox}
+\usepackage{siunitx}
+\usepackage{ccicons}
+
+\usepackage{ragged2e}
+\twocolumnfootnotes
+\footmarkstyle{{\color{Maroon}#1}.\hfill}
+\setlength{\footmarkwidth}{-0.5em}
+\setlength{\footmarksep}{0em}
+\setlength{\footparindent}{0em}
+\renewcommand{\foottextfont}{\sffamily\scriptsize}
+% disable footnoterule
+\let\oldfootnoterule\footnoterule
+\renewcommand*{\footnoterule}{}
+
+
+\AtBeginEnvironment{align*}{\footnotesize}
+\AtBeginEnvironment{align}{\footnotesize}
+\AtBeginEnvironment{quote}{\small}
+
+\makeatletter
+\def\@maketitle{   % custom maketitle
+{\Large \scshape \sffamily \@title} \smallskip \par
+{\sffamily \@author} ~ \(\cdotp\) ~ {\scriptsize \@date} \bigskip
+\vspace{1em}}
+\makeatother
+
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+$if(title)$
+\title{\textsc{$title$}$if(thanks)$\thanks{$thanks$}$endif$$if(subtitle)$\\ \textsc{\small $subtitle$ }$endif$}
+$endif$
+
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+$if(institute)$
+\providecommand{\institute}[1]{}
+\institute{$for(institute)$$institute$$sep$ \and $endfor$}
+$endif$
+\date{$date$}
+$if(beamer)$
+$if(titlegraphic)$
+\titlegraphic{\includegraphics{$titlegraphic$}}
+$endif$
+$if(logo)$
+\logo{\includegraphics{$logo$}}
+$endif$
+$endif$
+
+\begin{document}
+
+$if(title)$
+$if(beamer)$
+\frame{\titlepage}
+$else$
+\maketitle
+$endif$
+$if(abstract)$
+\begin{abstract}
+  \RaggedRight
+  \sffamily
+$abstract$
+\end{abstract}
+$endif$
+$endif$
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$body$
+
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}
