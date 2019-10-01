@@ -1,5 +1,5 @@
 % -*- LaTeX -*-
-\documentclass[12pt,oneside]{memoir}
+\documentclass[$if(fontsize)$$fontsize$$else$12$endif$pt,oneside]{memoir}
 
 \usepackage{ragged2e}
 \usepackage[usenames, dvipsnames]{xcolor}
