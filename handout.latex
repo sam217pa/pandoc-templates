@@ -40,9 +40,14 @@ $endif$
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage{microtype}
-% \usepackage[sc, osf]{mathpazo}
-\usepackage[osf]{libertinus}
 \usepackage{amsmath, amssymb, etoolbox}
+\usepackage[varqu,varl]{zi4}
+\usepackage[osf,p]{libertinus}
+\usepackage[condensed]{roboto}
+\usepackage[libertine]{newtxmath}
+\usepackage[cal=boondoxo,bb=boondox,frak=boondox]{mathalfa}
+\renewcommand*\oldstylenums[1]{\textosf{#1}}
+
 \usepackage{siunitx}
 \usepackage{ccicons}
 
