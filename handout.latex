@@ -68,11 +68,15 @@ $endif$
 \AtBeginEnvironment{quote}{\small}
 
 \makeatletter
-\def\@maketitle{   % custom maketitle
+\renewcommand*{\maketitle}{%
 {\Large \scshape \sffamily \@title} \smallskip \par
 {\sffamily \@author} ~ \(\cdotp\) ~ {\scriptsize \@date} \bigskip
 \vspace{1em}}
 \makeatother
+
+$if(widemargin)$
+\usepackage[margin=1.2in]{geometry}
+$endif$
 
 $if(numbersections)$
 \setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
